@@ -12,7 +12,8 @@
         <a href="/customers">List Customer</a>
     </div>
     <div class="col-sm-5">
-        <form th:action="@{/create-customer}" th:object="${customer}" id="customer" method="post">
+        <form th:action="@{/edit-customer}" th:object="${customer}" method="post">
+            <input th:type="hidden" name="id" th:field="*{id}">
             <div class="mb-3">
                 <label  class="form-label">Name</label>
                 <input type="text" class="form-control" th:field="*{name}">
