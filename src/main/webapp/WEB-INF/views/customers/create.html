@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Customer</title>
+    <link rel="stylesheet" href="/resources/css/bootstrap.css">
+    <style>
+        #title {
+            background: #25cff2;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+        <div class="col-sm-5" id="title">
+            <h1>Create Customer</h1>
+            <a href="/customers">List Customer</a>
+        </div>
+    <div class="col-sm-5">
+        <form th:action="@{/create-customer}" th:object="${customer}" id="customer" method="post">
+            <div class="mb-3">
+                <label  class="form-label">Name</label>
+                <input type="text" class="form-control" th:field="*{name}">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Phone</label>
+                <input type="text" class="form-control" th:field="*{phone}">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="text" class="form-control" th:field="*{email}">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Address</label>
+                <input type="text" class="form-control" th:field="*{address}">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

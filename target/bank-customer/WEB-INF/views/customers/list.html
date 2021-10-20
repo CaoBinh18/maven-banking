@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Management</title>
+    <link rel="stylesheet" href="/resources/css/bootstrap.css">
+<!--    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">-->
+</head>
+<body>
+<div class="container">
+    <div class="table-title">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>List Customer</h1>
+            </div>
+            <div class="col-sm-6">
+                <a href="/create-customer">Create new customer</a>
+            </div>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Address</th>
+            <th scope="col">Balance</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="customer : ${customers}">
+            <tr>
+                <td th:text="${customer.id}"></td>
+                <td th:text="${customer.name}"></td>
+                <td th:text="${customer.email}"></td>
+                <td th:text="${customer.phone}"></td>
+                <td th:text="${customer.address}"></td>
+                <td th:text="${customer.balance}"></td>
+                <td><a th:href="@{/edit-customer/__${customer.id}__ }">Edit</a></td>
+                <td><a th:href="@{/delete-customer/__${customer.id}__ }">Delete</a></td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
